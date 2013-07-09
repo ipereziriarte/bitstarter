@@ -23,8 +23,12 @@ References:
 var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
+var rest = require('restler');
+
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
+var PAGE_DEFAULT = "http://hidden-reaches-6483.herokuapp.com";
+var outfile = "out.html";
 
 var assertFileExists = function(infile) {
     var instr = infile.toString();
@@ -43,6 +47,29 @@ var loadChecks = function(checksfile){
     return JSON.parse(fs.readFileSync(checksfile));
 };
 
+var checkURL = function(url, checksfile) {
+    rest.get(url).on('complete', function(result, response){
+	console.log("llega"); 
+	var putes = checkURLStream(result, checksfile);;
+	
+	
+	var outJson = JSON.stringify(putes, null, 4);
+	console.log(outJson);
+    });
+};
+
+var checkURLStream = function(dataStream, checksfile){
+    $ = cheerio.load(dataStream);
+    var checks = loadChecks(checksfile).sort();
+    var out = {};
+    for (var ii in checks) {
+	var present = $(checks[ii]).length > 0;
+	out[checks[ii]] = present;
+    }
+    return out;
+};
+
+
 var checkHtmlFile = function(htmlfile, checksfile){
     $ = cheerioHtmlFile(htmlfile);
     var checks = loadChecks(checksfile).sort();
@@ -54,14 +81,28 @@ var checkHtmlFile = function(htmlfile, checksfile){
     return out;
 };
 
+var clone = function(fn) {
+    // Workaround for commander.js issue
+    // http://stackoverflow.com/a/6772648
+    return fn.bind({});
+};
+
 if (require.main == module) {
     program
-	.option('-c, --checks ', 'Path to checks.json', assertFileExists, CHECKSFILE_DEFAULT)
-        .option('-f, --file ', 'Path to index.html', assertFileExists, HTMLFILE_DEFAULT)
-        .parse(process.argv);
-    var checkJson = checkHtmlFile(program.file, program.checks);
-    var outJson = JSON.stringify(checkJson, null, 4);
-    console.log(outJson);
+	.option('-c, --checks <check_file>', 'Path to checks.json',clone( assertFileExists), CHECKSFILE_DEFAULT)
+	.option('-f, --file <html_file> ', 'Path to index.html', clone(assertFileExists), HTMLFILE_DEFAULT)
+	.option('-u, --url ', 'Path to url', assertFileExists, PAGE_DEFAULT)
+	.parse(process.argv);
+    if (program.option == "--url" || program.option== "-u") {
+	console.log("entra al if");
+	var mierda = checkURL(program.url, program.checks);
+    } else {
+	var checkJson = checkHtmlFile(program.file, program.checks);
+	var outJson = JSON.stringify(checkJson, null, 4);
+	console.log(outJson);
+
+    }
+
 } else {
     exports.checkHtmlFile = checkHtmlFile;
 }
