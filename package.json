@@ -1,8 +1,10 @@
 {
-  "name": "node-example",
+  "name": "bitstarter",
+  "description": "bitstarter app for coursera",
   "version": "0.0.1",
+  "privat"e: "true",
   "dependencies": {
-    "express": "2.5.x"
+    "express": "3.x"
   },
   "engines": {
     "node": "0.8.x",
