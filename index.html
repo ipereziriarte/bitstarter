@@ -15,7 +15,7 @@
     /* Large desktop */
     @media (min-width: 980px) {
         body {
-            padding-top: 60px;
+            padding-top: 70px;
         }
 
         .linediv-l {
@@ -119,6 +119,12 @@
         color: #ccccff;
     }
 
+    /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
+    div.addthis_toolbox {
+        width:180px;
+        margin: 0 auto;
+    }
+
     </style>
 </head>
 <body>
@@ -175,23 +181,23 @@
                             <!-- linediv-l and linediv-r give dividing lines that look diferent in horizontal and vertical layouts, illustrating mediaquerys -->
                             <div class="linediv-l">
                                 <h3>1000<h3><p>Backers</p>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-4">
+                                <div class="linediv-c">
+                                    <h3>$6000</h3> <p> of $10000</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="linediv-r">
+                                    <h3>10</h3> <p>days left</p>
+                                </div>
                             </div>
                         </div>
 
-                        <div class="col-lg-4">
-                            <div class="linediv-c">
-                                <h3>$6000</h3> <p> of $10000</p>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="linediv-r">
-                                <h3>10</h3> <p>days left</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Call to action -->
-                    <div class="row prog"></div>
+                        <!-- Call to action -->
+                        <div class="row prog"></div>
                         <div class="col-lg-10 col-offset-1">
                             <!-- Thermometer Bootstrap progress bar -->
                             <!-- Require import fontAwesome at header -->
@@ -210,11 +216,18 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-lg-8 col-offset-2 social">
+                        <div class="col-lg-8 col-offset-3 social">
                             <!-- social buttons are not included by default in bootstrap -->
                             <!-- see http://noizwaves.github.io/bootstrap-social-buttons -->
-                            <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter </button>
-                            <button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook </button>
+                            <!-- AddThis Button BEGIN -->
+                            <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+                            <a class="addthis_button_facebook"></a>
+                            <a class="addthis_button_twitter"></a>
+                            <a class="addthis_button_google_plusone_share"></a>
+                            </div>
+                            <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+                            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51fe68b11dc55ed2"></script>
+                            <!-- AddThis Button END -->
                         </div>
                     </div>
                 </div>
