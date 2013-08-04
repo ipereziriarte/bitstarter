@@ -2,7 +2,7 @@
   "name": "bitstarter",
   "description": "bitstarter app for coursera",
   "version": "0.0.1",
-  "privat"e: "true",
+  "private": "true",
   "dependencies": {
     "express": "3.x"
   },
