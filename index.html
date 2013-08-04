@@ -170,43 +170,47 @@
             <!-- We define a new 'actions' div to contain statistics, order and share buttons. -->
             <div class="col-lg-5 actions">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
-                        <div class="row statistics">
-                            <div class="col-lg-4">
-                                <!-- linediv-l and linediv-r give dividing lines that look diferent in horizontal and vertical layouts, illustrating mediaquerys -->
-                                <div class="linediv-l">
-                                    <h3>1000<h3><p>Backers</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4">
-                                    <div class="linediv-c">
-                                        <h3>$6000</h3> <p> of $10000</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="linediv-r">
-                                        <h3>10</h3> <p>days left</p>
-                                    </div>
-                                </div>
+                    <div class="row statistics">
+                        <div class="col-lg-4">
+                            <!-- linediv-l and linediv-r give dividing lines that look diferent in horizontal and vertical layouts, illustrating mediaquerys -->
+                            <div class="linediv-l">
+                                <h3>1000<h3><p>Backers</p>
                             </div>
                         </div>
-                        <!-- Call to action -->
-                        <div class="col-lg-10 col-lg-offset-1">
+
+                        <div class="col-lg-4">
+                            <div class="linediv-c">
+                                <h3>$6000</h3> <p> of $10000</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="linediv-r">
+                                <h3>10</h3> <p>days left</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to action -->
+                    <div class="row prog"></div>
+                        <div class="col-lg-10 col-offset-1">
                             <!-- Thermometer Bootstrap progress bar -->
                             <!-- Require import fontAwesome at header -->
                             <!-- http://twitter.github.io/bootstrap/components.html#progress -->
-                            <div class="thermometer progress active">
-                                <div class="bar bar-success" style="width: 60%"></div>
-                                <div class="bar bar-warning" style="width: 40%"></div>
+                            <div class="thermometer progress">
+                                <div class="progress-bar progress-bar-success" style="width: 60%"></div>
+                                <div class="progress-bar progress-bar-warning" style="width: 40%"></div>
                             </div>
                         </div>
-                        <div class="col-lg-6 col-lg-offset-3 order">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-offset-3 order">
                             <!-- Standart bootstrap button -->
                             <!-- http://twitter.github.io/bootstrap/base-css.html#buttons -->
                             <button class="btn btn-success btn-large">Preorder</button>
                         </div>
-                        <div class="col-lg-8 col-lg-offset-2 social">
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-8 col-offset-2 social">
                             <!-- social buttons are not included by default in bootstrap -->
                             <!-- see http://noizwaves.github.io/bootstrap-social-buttons -->
                             <button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter </button>
@@ -214,6 +218,7 @@
                         </div>
                     </div>
                 </div>
+                
             </div>
 
             <!-- Beyond this parts the marketing copy begins -->
@@ -272,7 +277,7 @@
             <!-- We put this under license and style the footer -->
             <!-- http://creativecommons.org/licenses/ -->
             <div class="row footer">
-                
+
                 <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/80x15.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
                 
             </div>
